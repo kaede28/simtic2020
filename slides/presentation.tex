@@ -1,0 +1,316 @@
+% Welcome! This is the unofficial Umeå University template.
+% IMPORTANT: 
+% This work, "Umeå University Unofficial Beamer Theme", is a derivative
+% of "University of Udine Unofficial Beamer Theme" by Marco Basaldella, University of Udine, CC 4.0 BY. 
+% (https://www.overleaf.com/latex/templates/university-of-udine-unofficial-beamer-theme/zndkgxrjsdzt) 
+%
+% In this derived work, changes are made to the colour scheme, title frame, selected fonts as well as 
+% the images used in the title-frame and header. Otherwise, the main functionality and commands are 
+% all credited to Marco Basaldella (and Till Tantau et al. for creating the beamer document class in
+% the first place).  
+%
+% "Umeå University Unofficial Beamer Theme" is licensed under CC 4.0 by Jesper Erixon.
+
+% See README.md for more full information about this template .
+
+% Note that [usenames,dvipsnames] is MANDATORY due to compatibility
+% issues between tikz and xcolor packages.
+
+\documentclass[usenames,dvipsnames,10pt]{beamer} 
+% Add option 'aspectratio=169' for 16:9 widescreen 
+% Add option  'handout' to ignore animations
+% If you have a smaller amount of text, feel free to also try '11pt'! / Jesper
+
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usetheme{umu}
+\usepackage{dirtytalk}
+\usepackage{minted}
+
+%%% Bibliography
+\usepackage[style=authoryear,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+
+% Author names in publication list are consistent 
+% i.e. name1 surname1, name2 surname2
+% See https://tex.stackexchange.com/questions/106914/biblatex-does-not-reverse-the-first-and-last-names-of-the-second-author
+\DeclareNameAlias{author}{given-family}
+
+%%% Suppress biblatex annoying warning
+\usepackage{silence}
+\WarningFilter{biblatex}{Patching footnotes failed}
+
+%%% Some useful commands
+% pdf-friendly newline in links
+\newcommand{\pdfnewline}{\texorpdfstring{\newline}{ }} 
+% Fill the vertical space in a slide (to put text at the bottom)
+\newcommand{\framefill}{\vskip0pt plus 1filll}
+
+%%% Additional packages, added by Jesper Erixon
+% Use babel to neatly translate 'abstract' etc. to swedish  or other supported language
+%\usepackage[swedish]{babel}
+
+%%% Enter additional packages below (or above, I can't stop you)! / Jesper
+\renewcommand{\proofname}{\sffamily{Proof}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% YOUR PRESENTATION BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[Explorando Dart, Flutter e Angular Dart]{Explorando Dart, Flutter e Angular Dart}
+\date[\today]{\small06/11/2020}
+\author[Daniel Vieira]{
+  Daniel Barboza Vieira\\Bacharel em Engenharia da Computação.
+  \pdfnewline
+  \texttt{daniel.vieira@sattva.company}
+}
+\institute{SimTic 2020}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Conteúdo}
+\tableofcontents
+\end{frame}
+
+\framecard[UmUGreen]{A linguagem Dart}
+
+\framepic{graphics/silver_bullet3}{
+	\framefill
+    \textcolor{black}{Balas de prata \textbf{não} existem}
+    \vskip 0.5cm
+}
+
+\framepic[1]{graphics/multi_tool}{
+	\framefill
+%	\begin{flushright}
+%		\textcolor{black}{\textbf{Existem ferramentas\\Que podem ser mais ou menos úteis para uma determinada tarefa}}
+%	\end{flushright}
+}
+
+\framepic{graphics/dart_intro}{
+	\framefill
+    %\textcolor{black}{Balas de prata \textbf{não} existem}
+    %\vskip 0.5cm
+}
+
+\section{Histórico da Linguagem}
+\begin{frame}{Histórico da Linguagem}
+
+%\begin{alertblock}{Aviso}
+%You can ignore this slide if you're \textbf{not} working with Overleaf.
+%\end{alertblock}
+
+%\vskip 0.5cm
+
+\begin{description}
+
+	\item[05/2006] Google disponibiliza o projeto Google Web Toolkit, mais conhecido pela sigla GWT, que é um kit de desenvolvimento para a criação e otimização de aplicações web
+
+\end{description}
+
+\vspace{0.25cm}
+
+O desenvolvimento é feito em Java, e posteriormente o código fonte do projeto é convertido para Javascript, um processo chamado de \emph{transpilação}.
+
+\begin{block}{Objetivos}
+Produtividade no desenvolvimento de aplicações de alta performance sem que o desenvolvedor seja expert em Javascript, XMLHttpRequest e as peculiaridades de implementação de cada navegador.
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Histórico da Linguagem}
+
+\begin{description}
+
+	\item[10/2011] A linguagem Dart é anunciada na conferência \emph{GOTO} por seus criadores Lars Bak e Kasper Lund.
+	\item[11/2013] É disponibilizada a versão 1.0 da linguagem.
+	\item[07/2014] Padronização da versão 1.0 da linguagem pela ECMA International - European association for standardizing information and communication systems.
+	\item[03/2015] É disponibilizada a versão 1.9 da linguagem, onde abandonou-se a ideia da inclusão de uma máquina virtual Dart nos navegadores em razão de protestos da comunidade.
+	\item[03/2015] Fui contratado como desenvolvedor Dart na startup Pindeo Inc., localizada em Beverly Hills, Califórnia.
+
+\end{description}
+
+\end{frame}
+
+\begin{frame}{Histórico da Linguagem}
+
+\begin{description}
+
+	\item[08/2018] A versão 2.0 é lançada, alterando-se o sistema de tipos opcionais para tipos estáticos e inferência de tipos.
+	\item[11/2019] A versão 2.6 é lançada, com suporte a compilação nativa para as plataformas Linux,Mac OS e Windows
+	\item[12/2019] A versão 2.7 é lançada, com suporte a métodos de extensão, segurança de de tipos nulos (null safety) e interoperabilidade com C.
+	\item[03/2019] Fui contratado como desenvolvedor Dart na Element Pré-Pagos, localizada em Barueri-SP.
+	
+\end{description}
+
+\end{frame}
+
+%\begin{frame}[fragile]
+%\frametitle{Compiling}
+%
+%\begin{alertblock}{Warning}
+%You can ignore this slide if you \textbf{are} working with Overleaf.
+%\end{alertblock}
+%
+%To compile this deck you'll need the \texttt{biber} package. Probably your \TeX editor already supports it; if not, you will easily find online the instructions to install it.
+%
+%\vskip 0.5cm
+%
+%If you're not using an editor, you can compile this presentation using the command line by running:
+%
+%\begin{verbatim}
+%$ pdflatex main.tex
+%$ biber main.bcf
+%$ pdflatex main.tex
+%$ pdflatex main.tex
+%\end{verbatim}
+
+
+%\end{frame}
+
+\section{Características Gerais}
+
+\begin{frame}[fragile]{Características Gerais}
+
+%For this template we defined four colors, following the graphic profile of Umeå University:
+%\begin{itemize}
+%\item \textcolor{white}{\marker[UmUBlue]{\texttt{UmUBlue}}}
+%\item \textcolor{white}{\marker[UmUGreen]{\texttt{UmUGreen}}}
+%\item \textcolor{white}{\marker[UmUPink]{\texttt{UmUPink}}}
+%\item \textcolor{white}{\marker[UmUGold]{\texttt{UmUGold}}}
+%\end{itemize}
+%
+%\vskip 0.5cm
+%
+%You can use these colors as you want in your presentation. For example, you can \textbf{\textcolor{UmUGreen}{color the text in green}} by writing \texttt{\textbackslash textcolor\{UmUGreen\}\{my green text\}}.
+%
+%\vskip 0.5cm
+%
+%We also redefined many of the most common \LaTeX{} and Beamer commands, like \texttt{itemize}, \texttt{block}, etc. You will see samples of these commands in the following slides.
+
+\begin{itemize}
+
+	\item{Pertencente a família da linguagem C}
+	\item{multiplataforma: web, mobile (iOS e Android), desktop e servidores (Linux,Mac OS e Windows)}	
+	\item{produtividade e familiaridade com linguagens já estabelecidas como Java e C\#}
+	\item{multiparadigma: funcional, imperativa,orientada a objetos, refletiva}
+	\item{Foco na performance de execução e produtividade no desenvolvimento das aplicações do lado cliente}
+	\item{Suporte a concorrência através de isolates}
+	\item{Integração com C através do pacote dart:FFI}
+	\item{Suporte a extensões}
+	
+\end{itemize}
+
+\end{frame}
+
+\section{Software Development Kit (SDK)}
+\begin{frame}{Software Development Kit (SDK)}
+
+\begin{description}
+
+	\item[dart]{As aplicações são executadas por uma máquina virtual com compilação JIT e suporte a snapshots.}
+	\item[dart2native]{As aplicações são compiladas e otimizadas para execução em código de máquina (AOT).}
+	\item[dart2js]{O código fonte da aplicação é convertido para código fonte javascript otimizado.}
+	\item[dartanalyzer]{Analisador de sintaxe (linter).}
+	\item[dartaotruntime]{Execução de scripts.}
+	\item[dartdevc]{Compilador para desenvolvimento e debugging em navegadores Chrome.}
+	\item[dartdoc]{Geração de documentação de código no formato dartdoc.}
+	\item[dartfmt]{Formatador de código fonte.}
+	\item[pub]{Gerenciador de pacotes}
+
+\end{description}
+
+\end{frame}
+
+\framepic[1]{graphics/pub}{
+	\framefill
+%	\begin{flushright}
+%		\textcolor{black}{\textbf{Existem ferramentas\\Que podem ser mais ou menos úteis para uma determinada tarefa}}
+%	\end{flushright}
+
+}
+
+%\begin{minted}{dart}
+%
+%// Definição de uma função de nível de topo (top level function)
+%void imprimeInteiro(int valor) {
+%
+%  // Imprime o conteúdo da variável numero no console 
+%  print('O numero informado em ${DateTime.now()} é $valor.'); 
+%
+%}
+%
+%// Ponto de entrada de uma aplicação Dart.
+%void main() {
+%
+%  var numero = 42; // Declaração e inicialização de uma variável.
+%  imprimeInteriro(numero); // Chamada de função
+%
+%}
+%  
+% \end{minted}
+
+\section{Flutter}
+
+\framepic[1]{graphics/flutter.png}{
+	\framefill
+%	\begin{flushright}
+%		\textcolor{black}{\textbf{Existem ferramentas\\Que podem ser mais ou menos úteis para uma determinada tarefa}}
+%	\end{flushright}
+}
+
+\begin{frame}
+
+Exemplos de aplicativos desenvolvidos com Flutter:
+
+\begin{enumerate}
+
+	\item NuBank
+	\item Rive
+	\item Google Stadia
+	\item Ebay
+
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{block}{Framework Flutter}
+Flutter é um kit de ferramentas de interface do usuário multiplataforma projetado para permitir a reutilização de código em diferentes plataformas e sistemas operacionais enquanto também permite que os aplicativos façam interface diretamente com os serviços da plataforma subjacente. 
+\end{block}
+
+Durante o desenvolvimento, os aplicativos Flutter são executados em uma VM que oferece atualização dinâmica (\emph{hot reload}) com estado de mudanças sem a necessidade de uma recompilação completa. Para release, os aplicativos Flutter são compilados diretamente em código de máquina, sejam instruções Intel x64 ou ARM, ou para JavaScript, se direcionado à web. 
+\end{frame}
+
+\framepic[1]{graphics/architectural_layout}{
+	\framefill
+%	\begin{flushright}
+%		\textcolor{black}{\textbf{Existem ferramentas\\Que podem ser mais ou menos úteis para uma determinada tarefa}}
+%	\end{flushright}
+
+}
+
+%\framesubtitle{Um framework para criação de aplicações multiplataforma com a mesma base} 
+%\begin{block}{Goal of the mission}
+%Shoot in the Death Star's exhaust port and destroy it before it can fire on the Rebel base.
+%\end{block} 
+%\begin{alertblock}{Take care!}
+%TIE Fighters may chase you while approaching the target.
+%\end{alertblock} 
+%\begin{exampleblock}{Use the force you must}
+%Remember your training with Obi-Wan, and use the Force to make the perfect shot.
+%\end{exampleblock} 
+
+\begin{frame}{Flutter}
+
+Para o sistema operacional subjacente, os aplicativos Flutter são empacotados da mesma maneira que qualquer outro aplicativo nativo. Um incorporador específico da plataforma fornece um ponto de entrada; coordena com o sistema operacional subjacente para acesso a serviços como superfícies de renderização, acessibilidade e entrada; e gerencia o loop de eventos da mensagem. O embedder é escrito em uma linguagem apropriada para a plataforma: atualmente Java e C ++ para Android, Objective-C / Objective-C ++ para iOS e macOS e C ++ para Windows e Linux.
+
+\end{frame}
+
+\framecard[UmUBlue]{Demonstração - Flutter}
+
+\end{document}

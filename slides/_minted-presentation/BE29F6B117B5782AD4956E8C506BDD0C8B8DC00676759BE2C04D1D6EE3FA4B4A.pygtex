@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// This is where the app starts executing.}
+\PYG{k+kt}{void} \PYG{n}{main}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+
+  \PYG{k+kd}{var} \PYG{n}{number} \PYG{o}{=} \PYG{l+m}{42}\PYG{p}{;} \PYG{c+c1}{// Declare and initialize a variable.}
+  \PYG{n}{printInteger}\PYG{p}{(}\PYG{n}{number}\PYG{p}{);} \PYG{c+c1}{// Call a function.}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
